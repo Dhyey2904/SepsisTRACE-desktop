@@ -1,0 +1,24 @@
+# SepsisTRACE desktop app settings. Paths are relative to this folder (python/).
+seed: 42                          # trained models are stored for this seed
+
+paths:
+  trained_models: trained_models
+  demo_patients: data/demo_patients.parquet
+  demo_predictions: data/demo_predictions.parquet
+  shap_cache: data/shap_cache.parquet
+  test_predictions: data/test_predictions.parquet
+  thresholds: data/demo_thresholds.json
+  test_onsets: data/test_onsets.json
+
+data:
+  window_hours: 12                # features look back over the last 12 hours
+  horizons: [1, 3, 6, 12]         # hours ahead the models predict
+  min_history_hours: 3            # first hour that gets a prediction
+  rate_half_window: 6
+  vitals: [HR, O2Sat, Temp, SBP, MAP, DBP, Resp, EtCO2]
+  labs_keep: [WBC, Lactate, Creatinine, Platelets, BUN, Bilirubin_total, Glucose, Hct]
+  statics: [Age, Gender, Unit1, Unit2, HospAdmTime, ICULOS]
+
+models:
+  names: [lr, rf, xgb, mlp]       # logistic regression, random forest, XGBoost, neural network
+  feature_sets: [V, M, VM]        # V = values, M = measurement pattern, VM = both

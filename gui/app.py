@@ -84,9 +84,6 @@ class SepsisApp(tk.Tk):
         self.thr_note = ttk.Label(frame, foreground=MUTED, wraplength=240)
         self.thr_note.pack(anchor="w")
 
-        ttk.Label(side, text="(n) numbers match the features listed in README.md.", foreground=MUTED,
-                  wraplength=250).pack(side="bottom", anchor="w")
-
     # ---------------------------------------------------------------- settings
     @property
     def pid(self) -> str:
